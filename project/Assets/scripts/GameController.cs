@@ -86,5 +86,6 @@ public class GameController : ExtendedBehavior {
 		((Citizen)citizen.GetComponent(typeof(Citizen))).InitData(datacontroller.getNewCitizenData());
 		citizen.SetActive(true);
 		timer.ResetTimer();
+		timer.startTimer();
 	}
 }
