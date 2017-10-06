@@ -51,8 +51,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Citizen.cs" />
-     <Compile Include="Assets\DoorButton.cs" />
+     <Compile Include="Assets\scripts\Citizen.cs" />
+     <Compile Include="Assets\scripts\DataController.cs" />
+     <Compile Include="Assets\scripts\DoorButton.cs" />
+     <Compile Include="Assets\scripts\ExtendedBehavior.cs" />
+     <Compile Include="Assets\scripts\GameController.cs" />
+     <Compile Include="Assets\scripts\HappyMeterController.cs" />
+     <Compile Include="Assets\scripts\Timer.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/opt/Unity-2017.3.0b1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
