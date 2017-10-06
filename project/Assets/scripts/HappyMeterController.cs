@@ -7,11 +7,14 @@ public class HappyMeterController : MonoBehaviour {
     public Sprite[] sprites;
     int i;
 
+    private bool boom;
+
     // Use this for initialization
     void Start () {
         // sprites = new Sprite[5];
         i = 4;
         gameObject.GetComponent<SpriteRenderer>().sprite = sprites[i];
+        boom = false;
     }
 
 	// Update is called once per frame
@@ -25,7 +28,15 @@ public class HappyMeterController : MonoBehaviour {
     }
 
     public void decrHappyMeter(){
-      if(i > 0) i--;
+      if(i > 0){
+           i--;
+       }else{
+           boom = true;
+       }
       gameObject.GetComponent<SpriteRenderer>().sprite = sprites[i];
+    }
+
+    public bool isBoom(){
+        return boom;
     }
 }

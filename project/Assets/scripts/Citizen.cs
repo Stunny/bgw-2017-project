@@ -5,11 +5,9 @@ using UnityEngine;
 public class Citizen : MonoBehaviour {
 
 	public bool isHappy;
-	private GameController controller;
+	public string name;
 
-	void Awake(){
-		InitData();
-	}
+	private GameController controller;
 
 	// Use this for initialization
 	void Start () {
@@ -38,7 +36,8 @@ public class Citizen : MonoBehaviour {
 		//Send to happifier door animation
 	}
 
-	public void InitData(){
-		
+	public void InitData(CitizenData cdata){
+		isHappy = cdata.happy;
+		name = cdata.name;
 	}
 }

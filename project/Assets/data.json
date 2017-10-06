@@ -12,15 +12,15 @@
 "Sophie"],
 
 "happy":
-["no",
-"no",
-"no",
-"no",
-"no",
-"no",
-"no",
-"no",
-"no",
-"no"]
+[false,
+false,
+true,
+false,
+false,
+true,
+false,
+false,
+true,
+true]
 
 }

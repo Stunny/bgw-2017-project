@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : ExtendedBehavior {
 
@@ -32,15 +33,17 @@ public class GameController : ExtendedBehavior {
 		datacontroller = (DataController) datacontrollergo.GetComponent(typeof(DataController));
 
 		citizen = GameObject.Find("citizen");
-		addNewCitizen();
+		citizen.SetActive(false);
+		Wait(2f, ()=>{addNewCitizen();});
+
 	}
 
 	// Funcion que actualiza los datos del juego a cada frame
 	//
 	void Update(){
 		UpdateScore();
-		if(timer.finished){
-			//TODO GAMEOVER
+		if(timer.finished || happymeter.isBoom()){
+			SceneManager.LoadScene("gameover");
 		}
 	}
 
@@ -61,7 +64,7 @@ public class GameController : ExtendedBehavior {
 		}
 		else{
 			happymeter.decrHappyMeter();
-		}GameObject
+		}
 	}
 
 	//
@@ -80,8 +83,8 @@ public class GameController : ExtendedBehavior {
 	// Hace respawnear un nuevo ciudadano a interactuar con el agente de aduanas
 	//
 	private void addNewCitizen(){
-		((Citizen)citizen.GetComponent(typeof(Citizen))).InitData();
-		citizen.gameObject.SetActive(true);
+		((Citizen)citizen.GetComponent(typeof(Citizen))).InitData(datacontroller.getNewCitizenData());
+		citizen.SetActive(true);
 		timer.ResetTimer();
 	}
 }
